@@ -1,6 +1,6 @@
 using NUnit.Framework;
 
-namespace RomanNumberalsTests
+namespace RomanNumeralsTests
 {
     [TestFixture]
     public class RomanNumeralsTests

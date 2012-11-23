@@ -5,11 +5,11 @@ namespace RomanNumerals
 {
     public class RomanNumerals
     {
-        readonly NumberStringList _romanLibrary;
+        readonly NumberTextList _romanLibrary;
 
         public RomanNumerals()
         {
-            _romanLibrary = new NumberStringList
+            _romanLibrary = new NumberTextList
                 {
                     {1, "I"},
                     {4, "IV"},
@@ -29,16 +29,17 @@ namespace RomanNumerals
                 };
         }        
 
-        public string Convert(int decimalNumber)
-        {
-            string convertedNumeral = "";
-            int currentVal = decimalNumber;
 
-            while (currentVal > 0)
+        public string Convert(int number)
+        {
+            string convertedNumeral = string.Empty;
+            int adjustedNumber = number;
+
+            while (adjustedNumber > 0)
             {
-                var nearestNumber = _romanLibrary.GetNearestNumber(currentVal);
-                currentVal -= nearestNumber.Item1;
-                if (currentVal >= 0) convertedNumeral += nearestNumber.Item2;
+                var nearestSmallestNumber = _romanLibrary.GetNearestNumber(adjustedNumber);                
+                convertedNumeral += nearestSmallestNumber.Text;
+                adjustedNumber -= nearestSmallestNumber.Number;
             }
 
             return convertedNumeral;

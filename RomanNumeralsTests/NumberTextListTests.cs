@@ -4,7 +4,7 @@ using RomanNumerals;
 namespace RomanNumeralsTests
 {
     [TestFixture]
-    public class TupleListTests
+    public class NumberTextListTests
     {
 
         [TestCase(3,"I")]
@@ -12,7 +12,7 @@ namespace RomanNumeralsTests
         [TestCase(999,"CM")]
         public void ShouldReturnTheNumberNearestToTheValue(int numberToSearchFor, string expectedReturnText)
         {
-            var list = new NumberStringList()
+            var list = new NumberTextList()
                 {
                     {1, "I"},
                     {4, "IV"},
@@ -32,7 +32,7 @@ namespace RomanNumeralsTests
                 };
 
             var result = list.GetNearestNumber(numberToSearchFor);
-            Assert.That(result.Item2, Is.EqualTo(expectedReturnText));
+            Assert.That(result.Text, Is.EqualTo(expectedReturnText));
         }
 
         [TestCase(10,"A")]
@@ -40,7 +40,7 @@ namespace RomanNumeralsTests
         [TestCase(30,"C")]
         public void ShouldReturnTheNumberEqualToTheValue(int numberToSearchFor, string expectedReturnText)
         {
-            var list = new NumberStringList()
+            var list = new NumberTextList()
             {
                 {10,"A"},
                 {20,"B"},
@@ -48,7 +48,7 @@ namespace RomanNumeralsTests
             };
 
             var result = list.GetNearestNumber(numberToSearchFor);
-            Assert.That(result.Item2, Is.EqualTo(expectedReturnText));
+            Assert.That(result.Text, Is.EqualTo(expectedReturnText));
         }
     }
 }
