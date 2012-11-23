@@ -40,7 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="RomanNumeralsTests.cs" />
-    <Compile Include="NumberStringListTests.cs" />
+    <Compile Include="NumberTextListTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="nunit.framework">
